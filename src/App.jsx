@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
 import Movies from "./components/Movies";
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
       ) : (
         <>
           <Navbar />
-          <SearchBar />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Movies />} />

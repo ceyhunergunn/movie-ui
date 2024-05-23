@@ -1,13 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { MainContext } from "../context/Context";
 import defaultMovie from "../assets/defaultmovie.png";
 
 const MoviesCard = ({ movie }) => {
+  const { getMovieDetail, setLoaderMovieDetails } =
+    React.useContext(MainContext);
   const navigate = useNavigate();
   return (
     <div
       className="movies-card h-100"
-      onClick={() => navigate(`/${movie.imdbID}`)}
+      onClick={() => {
+        setLoaderMovieDetails(true);
+        getMovieDetail(movie.imdbID);
+        navigate(`/${movie.imdbID}`);
+      }}
     >
       <img
         src={movie.Poster !== "N/A" ? movie.Poster : defaultMovie}

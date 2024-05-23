@@ -4,10 +4,12 @@ export const MainContext = createContext();
 
 const MainContextProvider = (props) => {
   const [movies, setMovies] = useState("");
+  const [movieDetail, setMovieDetail] = useState("");
   const [search, setSearch] = useState("Pokemon");
   const [searched, setSearched] = useState("");
   const [loader, setLoader] = useState(true);
   const [loaderMovies, setLoaderMovies] = useState(false);
+  const [loaderMovieDetails, setLoaderMovieDetails] = useState(false);
   const [type, setType] = useState("movie");
   const [page, setPage] = useState("1");
   const [totalResults, setTotalResults] = useState("");
@@ -48,12 +50,10 @@ const MainContextProvider = (props) => {
     await fetch(`http://www.omdbapi.com/?i=${id}&apikey=d761022e`)
       .then((response) => response.json())
       .then((json) => {
-        setSearch(search);
-        setMovies(json.Search ? json.Search : []);
-        if (json.Search) {
-          setTimeout(() => {
-            setLoader(false);
-          }, 2000);
+        console.log(json);
+        if (json.Response === "True") {
+          setMovieDetail(json);
+          setLoaderMovieDetails(false);
         }
       });
   };
@@ -80,6 +80,10 @@ const MainContextProvider = (props) => {
         setSearched,
         loaderMovies,
         setLoaderMovies,
+        movieDetail,
+        setMovieDetail,
+        loaderMovieDetails,
+        setLoaderMovieDetails,
       }}
     >
       {props.children}

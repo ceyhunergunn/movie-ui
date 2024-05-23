@@ -152,44 +152,45 @@ html {
   }
 }
 
-// MOVIELIST
-
-.movie-list {
-  background-color: $secondary-color;
-  width: 100%;
-  border-radius: 12px;
-  color: $text-color;
-  border: 1px solid $detail-primary-color;
-  & > * {
-    padding: 0.5rem;
-  }
-
-  &-row-title {
-    background-color: $detail-primary-color;
-    padding: 1rem;
-    width: 100%;
-    border-radius: 6px;
-  }
-
-  &-row {
-    padding: 1rem;
-    cursor: pointer;
-    &:hover {
-      background-color: $detail-primary-color;
-      width: 100%;
-      border-radius: 6px;
-    }
-  }
-}
-
-.movies-area {
-  margin: 0 auto;
-  width: 100%;
-}
-
 .movies {
   width: 20% !important;
   height: 450px;
+  &-area {
+    margin: 0 auto;
+    width: 100%;
+  }
+  &-card {
+    position: relative;
+    cursor: pointer;
+    color: $text-color;
+    border-radius: 12px;
+    border: 1px solid $detail-primary-color;
+    background-color: $secondary-color;
+    transition: 0.5s linear;
+    &:hover {
+      transform: scale(1.02);
+    }
+    &-image {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: 12px;
+    }
+    &-detail {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: 175px;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.25) 5%,
+        rgba(0, 0, 0, 0.5) 10%,
+        rgba(0, 0, 0, 0.8) 100%
+      );
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+  }
 }
 @media screen and (max-width: 1000px) {
   .movies {
@@ -201,40 +202,41 @@ html {
     height: 350px;
   }
 }
-// CARD
-.movies-card {
-  position: relative;
-  cursor: pointer;
-  color: $text-color;
-  border-radius: 12px;
-  border: 1px solid $detail-primary-color;
-  background-color: $secondary-color;
-  transition: 0.5s linear;
-  &:hover {
-    transform: scale(1.02);
+
+// MOVIE DETAIL
+.movie-detail {
+  height: calc(100% - 70px);
+  &-title {
+    font-size: 26px;
+    color: $detail-secondary-color;
+    font-weight: bold;
+  }
+  &-subtitle {
+    font-size: 20px;
+    color: $detail-secondary-color;
+    font-weight: 100;
+  }
+  &-detail {
+    font-size: 20px;
+    color: $text-color;
+    font-weight: 300;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  &-badge {
+    font-size: 16px;
+    color: $text-color;
+    font-weight: 100;
+    background-color: $detail-secondary-color;
+    border-radius: 12px;
   }
   &-image {
     object-fit: cover;
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 60%;
     border-radius: 12px;
   }
-  &-detail {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    height: 175px;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.25) 5%,
-      rgba(0, 0, 0, 0.5) 10%,
-      rgba(0, 0, 0, 0.8) 100%
-    );
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-  }
 }
-
 // PAGINATION
 
 .pagination {
