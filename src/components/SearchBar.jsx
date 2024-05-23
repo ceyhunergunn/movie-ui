@@ -2,7 +2,7 @@ import React from "react";
 import { MainContext } from "../context/Context";
 
 const SearchBar = () => {
-  const { getMovie, name, setName, category, setCategory } =
+  const { getMovie, category, setCategory, search, setSearch } =
     React.useContext(MainContext);
 
   return (
@@ -13,8 +13,8 @@ const SearchBar = () => {
             type="text"
             placeholder="Search"
             className="searchbar-search"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <div className="col-lg-6 col-md-12 my-3">
@@ -48,7 +48,7 @@ const SearchBar = () => {
             <div
               className="searchbar-search-btn"
               onClick={() => {
-                getMovie(name, category);
+                getMovie();
               }}
             >
               Search

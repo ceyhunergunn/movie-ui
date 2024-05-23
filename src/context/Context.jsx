@@ -4,14 +4,14 @@ export const MainContext = createContext();
 
 const MainContextProvider = (props) => {
   const [movies, setMovies] = useState("");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Pokemon");
   const [loader, setLoader] = useState(true);
   const [category, setCategory] = useState("movie");
-  const [name, setName] = useState("Pokemon");
+  const [type, setType] = useState("movie");
   const [page, setPage] = useState("1");
   const [totalResults, setTotalResults] = useState("");
 
-  const getMovie = async (search = "Pokemon", type = "movie") => {
+  const getMovie = async () => {
     await fetch(
       `http://www.omdbapi.com/?s=${search}&type=${type}&page=${page}&apikey=d761022e`
     )
@@ -46,7 +46,6 @@ const MainContextProvider = (props) => {
     getMovie();
     // eslint-disable-next-line
   }, []);
-  console.log(movies);
   return (
     <MainContext.Provider
       value={{
@@ -56,12 +55,13 @@ const MainContextProvider = (props) => {
         getMovieDetail,
         totalResults,
         search,
+        setSearch,
         category,
         setCategory,
-        name,
-        setName,
         page,
         setPage,
+        type,
+        setType,
       }}
     >
       {props.children}
