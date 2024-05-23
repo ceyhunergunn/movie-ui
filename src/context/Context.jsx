@@ -41,7 +41,6 @@ const MainContextProvider = (props) => {
   useEffect(() => {
     setLoaderMovies(true);
     getMovie();
-
     //eslint-disable-next-line
   }, [page]);
 
