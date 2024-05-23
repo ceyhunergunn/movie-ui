@@ -6,6 +6,7 @@ import MovieDetails from "./components/MovieDetails";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
+import Movies from "./components/Movies";
 
 function App() {
   const { loader } = React.useContext(MainContext);
@@ -19,7 +20,8 @@ function App() {
           <SearchBar />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<MovieList />} />
+              <Route path="/" element={<Movies />} />
+              {/* <Route path="/list" element={<MovieList />} /> */}
               <Route path="/:id" element={<MovieDetails />} />
             </Routes>
           </BrowserRouter>
