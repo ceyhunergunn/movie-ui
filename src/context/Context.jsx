@@ -1,0 +1,72 @@
+import { createContext, useEffect, useState } from "react";
+
+export const MainContext = createContext();
+
+const MainContextProvider = (props) => {
+  const [movies, setMovies] = useState("");
+  const [search, setSearch] = useState("");
+  const [loader, setLoader] = useState(true);
+  const [category, setCategory] = useState("movie");
+  const [name, setName] = useState("Pokemon");
+  const [page, setPage] = useState("1");
+  const [totalResults, setTotalResults] = useState("");
+
+  const getMovie = async (search = "Pokemon", type = "movie") => {
+    await fetch(
+      `http://www.omdbapi.com/?s=${search}&type=${type}&page=${page}&apikey=d761022e`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        setSearch(search);
+        setTotalResults(+json.totalResults);
+        setMovies(json.Search ? json.Search : []);
+        if (json.Search) {
+          setTimeout(() => {
+            setLoader(false);
+          }, 2000);
+        }
+      });
+  };
+  const getMovieDetail = async (id) => {
+    await fetch(`http://www.omdbapi.com/?i=${id}&apikey=d761022e`)
+      .then((response) => response.json())
+      .then((json) => {
+        setSearch(search);
+        setMovies(json.Search ? json.Search : []);
+        if (json.Search) {
+          setTimeout(() => {
+            setLoader(false);
+          }, 2000);
+        }
+      });
+  };
+
+  useEffect(() => {
+    getMovie();
+    // eslint-disable-next-line
+  }, []);
+  console.log(movies);
+  return (
+    <MainContext.Provider
+      value={{
+        movies,
+        loader,
+        getMovie,
+        getMovieDetail,
+        totalResults,
+        search,
+        category,
+        setCategory,
+        name,
+        setName,
+        page,
+        setPage,
+      }}
+    >
+      {props.children}
+    </MainContext.Provider>
+  );
+};
+
+export default MainContextProvider;
