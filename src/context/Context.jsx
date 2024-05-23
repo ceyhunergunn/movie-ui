@@ -39,8 +39,9 @@ const MainContextProvider = (props) => {
       });
   };
   useEffect(() => {
-    setLoaderMovies(true);
     getMovie();
+    setLoaderMovies(true);
+
     //eslint-disable-next-line
   }, [page]);
 

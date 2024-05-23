@@ -2,9 +2,10 @@ import React from "react";
 import { MainContext } from "../context/Context";
 
 const SearchBar = () => {
-  const { setPage, type, setType, search, setSearch, setSearched } =
+  const { setPage, type, setType, search, setSearch, setSearched, getMovie } =
     React.useContext(MainContext);
-
+  console.log(search);
+  console.log(type);
   return (
     <div className="w-100 mx-auto p-3 searchbar">
       <div className="row w-100 mx-auto">
@@ -46,8 +47,11 @@ const SearchBar = () => {
             <div
               className="searchbar-search-btn"
               onClick={() => {
-                setPage(1);
-                setSearched(search);
+                if (search !== "") {
+                  setSearched(search);
+                  setPage(1);
+                  getMovie();
+                }
               }}
             >
               Search
