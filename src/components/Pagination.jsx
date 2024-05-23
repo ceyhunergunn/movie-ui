@@ -2,8 +2,7 @@ import React from "react";
 import { MainContext } from "../context/Context";
 
 const Pagination = () => {
-  const { totalResults, page, setPage, getMovie, search, type } =
-    React.useContext(MainContext);
+  const { totalResults, page, setPage } = React.useContext(MainContext);
   const totalPageCount = Math.round(totalResults / 10);
   console.log(page);
   return (
@@ -13,7 +12,6 @@ const Pagination = () => {
           <div
             onClick={() => {
               setPage(1);
-              getMovie(search, type);
             }}
             className="pagination-btn"
           >
@@ -26,7 +24,6 @@ const Pagination = () => {
         <div
           onClick={() => {
             setPage(+page - 1);
-            getMovie(search, type);
           }}
           className="pagination-btn"
         >
@@ -38,7 +35,6 @@ const Pagination = () => {
         <div
           onClick={() => {
             setPage(+page + 1);
-            getMovie(search, type);
           }}
           className="pagination-btn"
         >
@@ -51,7 +47,6 @@ const Pagination = () => {
           <div
             onClick={() => {
               setPage(totalPageCount);
-              getMovie(search, type);
             }}
             className="pagination-btn"
           >

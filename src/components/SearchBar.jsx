@@ -2,7 +2,7 @@ import React from "react";
 import { MainContext } from "../context/Context";
 
 const SearchBar = () => {
-  const { getMovie, type, setType, search, setSearch, setSearched } =
+  const { setPage, type, setType, search, setSearch, setSearched } =
     React.useContext(MainContext);
 
   return (
@@ -46,7 +46,7 @@ const SearchBar = () => {
             <div
               className="searchbar-search-btn"
               onClick={() => {
-                getMovie();
+                setPage(1);
                 setSearched(search);
               }}
             >
