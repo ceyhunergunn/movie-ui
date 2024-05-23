@@ -6,13 +6,13 @@ import defaultMovie from "../assets/defaultmovie.png";
 const MovieDetails = () => {
   const { movieDetail, loaderMovieDetails } = React.useContext(MainContext);
   return (
-    <div className="p-3 movie-detail ">
+    <div className="p-3 movie-detail">
       {loaderMovieDetails ? (
         <div className="h-100">
           <Loader />
         </div>
       ) : (
-        <div className="row mx-auto w-100 h-100">
+        <div className="row mx-auto w-100 h-100" style={{ paddingTop: "70px" }}>
           <div className="col-12 flex-center flex-column text-center">
             <div className="movie-detail-title mb-3">{movieDetail.Title}</div>
             <div className="d-flex">

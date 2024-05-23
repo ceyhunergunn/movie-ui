@@ -62,7 +62,9 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $detail-primary-color;
+  // background-color: $detail-primary-color;
+  backdrop-filter: blur(4px) !important;
+  border: 1px solid $detail-primary-color-inactive;
   border-top: none;
   display: flex;
   align-items: center;
@@ -106,7 +108,7 @@ html {
   }
 
   &-btn {
-    border: 1px solid $detail-primary-color;
+    border: 1px solid $detail-primary-color-inactive;
     cursor: pointer;
     padding: 1rem;
     height: 70px;
@@ -114,7 +116,6 @@ html {
     text-align: center;
     border-radius: 12px;
     color: $text-color;
-    border: 1px solid $detail-primary-color;
     @include flexCenter();
     &:hover {
       background-color: $detail-primary-color;
@@ -140,7 +141,7 @@ html {
     width: 24%;
     text-align: center;
     border-radius: 12px;
-    border: 1px solid $detail-primary-color;
+    border: 1px solid $detail-primary-color-inactive;
     color: $text-color;
     @include flexCenter();
     &:hover {
@@ -162,7 +163,7 @@ html {
     cursor: pointer;
     color: $text-color;
     border-radius: 12px;
-    border: 1px solid $detail-primary-color;
+    border: 1px solid $detail-primary-color-inactive;
     background-color: $secondary-color;
     transition: 0.5s linear;
     &:hover {
@@ -227,9 +228,11 @@ html {
     font-weight: 100;
     background-color: $detail-primary-color;
     border-radius: 12px;
+    // border: 1px solid $text-color;
   }
   &-image {
     object-fit: cover;
+    border: 1px solid $detail-primary-color-inactive;
     height: 80%;
     width: 60%;
     border-radius: 12px;
@@ -249,7 +252,7 @@ html {
     text-align: center;
     border-radius: 12px;
     color: $text-color;
-    border: 1px solid $detail-primary-color;
+    border: 1px solid $detail-primary-color-inactive;
     @include flexCenter();
     &:hover {
       background-color: $detail-primary-color;

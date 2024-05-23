@@ -20,7 +20,7 @@ const Movies = () => {
     );
   };
   return (
-    <>
+    <div style={{ paddingTop: "70px" }}>
       <SearchBar />
       <div className="movies-area p-3 pt-0 row mx-auto">
         {loaderMovies ? (
@@ -31,7 +31,7 @@ const Movies = () => {
           <>
             <div
               className={
-                movies.length > 0 ? "text-title" : " text-title text-center"
+                movies.length > 0 ? "text-title" : "text-title text-center"
               }
             >
               {movies.length > 0 ? "" : `No results found for "${searched}"`}
@@ -44,7 +44,7 @@ const Movies = () => {
                     width="30"
                     height="30"
                     fill="currentColor"
-                    className="bi bi-sort-down-alt text-title"
+                    className="bi bi-sort-down-alt text-title text-2"
                     viewBox="0 0 16 16"
                     style={{ cursor: "pointer" }}
                     onClick={() => sortMovies()}
@@ -69,7 +69,7 @@ const Movies = () => {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
