@@ -24,7 +24,7 @@ const MoviesCard = ({ movie }) => {
       <div className="movies-card-detail flex-center">
         <div className="text-center">
           <div className="text-title ">{movie.Title}</div>
-          <div className="text-subtitle">Release Date</div>
+          <div className="text-subtitle">Released Year</div>
           <div className="text-title ">{movie.Year}</div>
           <div className="text-subtitle">IMDB ID</div>
           <div className="text-title ">{movie.imdbID}</div>

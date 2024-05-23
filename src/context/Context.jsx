@@ -20,7 +20,6 @@ const MainContextProvider = (props) => {
     )
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
         setLoaderMovies(true);
         if (json.Response === "True") {
           setSearch(search);
@@ -45,12 +44,13 @@ const MainContextProvider = (props) => {
     getMovie();
     //eslint-disable-next-line
   }, [page]);
+  const currentUrl = window.location.href;
+  const extracted = currentUrl.split("/").pop();
 
   const getMovieDetail = async (id) => {
     await fetch(`http://www.omdbapi.com/?i=${id}&apikey=d761022e`)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
         if (json.Response === "True") {
           setMovieDetail(json);
           setLoaderMovieDetails(false);
@@ -59,7 +59,12 @@ const MainContextProvider = (props) => {
   };
 
   useEffect(() => {
-    getMovie();
+    if (extracted !== "") {
+      setLoaderMovieDetails(true);
+      getMovieDetail(extracted);
+    } else {
+      getMovie();
+    }
     // eslint-disable-next-line
   }, []);
   return (
