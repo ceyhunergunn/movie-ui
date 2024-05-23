@@ -23,7 +23,7 @@ const SearchBar = () => {
               className={` ${
                 type === "movie" ? "searchbar-btn-active" : "searchbar-btn"
               }`}
-              onClick={() => setType("movie")}
+              onClick={() => setType(type === "movie" ? "" : "movie")}
             >
               Movie
             </div>
@@ -31,7 +31,7 @@ const SearchBar = () => {
               className={` ${
                 type === "series" ? "searchbar-btn-active" : "searchbar-btn"
               }`}
-              onClick={() => setType("series")}
+              onClick={() => setType(type === "series" ? "" : "series")}
             >
               TV Series
             </div>
@@ -39,7 +39,7 @@ const SearchBar = () => {
               className={` ${
                 type === "episode" ? "searchbar-btn-active" : "searchbar-btn"
               }`}
-              onClick={() => setType("episode")}
+              onClick={() => setType(type === "episode" ? "" : "episode")}
             >
               TV Series Episodes
             </div>

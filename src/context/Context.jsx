@@ -10,7 +10,7 @@ const MainContextProvider = (props) => {
   const [loader, setLoader] = useState(true);
   const [loaderMovies, setLoaderMovies] = useState(false);
   const [loaderMovieDetails, setLoaderMovieDetails] = useState(false);
-  const [type, setType] = useState("movie");
+  const [type, setType] = useState("");
   const [page, setPage] = useState("1");
   const [totalResults, setTotalResults] = useState("");
 
