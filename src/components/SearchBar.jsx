@@ -2,7 +2,7 @@ import React from "react";
 import { MainContext } from "../context/Context";
 
 const SearchBar = () => {
-  const { getMovie, category, setCategory, search, setSearch } =
+  const { getMovie, type, setType, search, setSearch, setSearched } =
     React.useContext(MainContext);
 
   return (
@@ -21,27 +21,25 @@ const SearchBar = () => {
           <div className="searchbar-btn-area">
             <div
               className={` ${
-                category === "movie" ? "searchbar-btn-active" : "searchbar-btn"
+                type === "movie" ? "searchbar-btn-active" : "searchbar-btn"
               }`}
-              onClick={() => setCategory("movie")}
+              onClick={() => setType("movie")}
             >
               Movie
             </div>
             <div
               className={` ${
-                category === "series" ? "searchbar-btn-active" : "searchbar-btn"
+                type === "series" ? "searchbar-btn-active" : "searchbar-btn"
               }`}
-              onClick={() => setCategory("series")}
+              onClick={() => setType("series")}
             >
               TV Series
             </div>
             <div
               className={` ${
-                category === "episode"
-                  ? "searchbar-btn-active"
-                  : "searchbar-btn"
+                type === "episode" ? "searchbar-btn-active" : "searchbar-btn"
               }`}
-              onClick={() => setCategory("episode")}
+              onClick={() => setType("episode")}
             >
               TV Series Episodes
             </div>
@@ -49,6 +47,7 @@ const SearchBar = () => {
               className="searchbar-search-btn"
               onClick={() => {
                 getMovie();
+                setSearched(search);
               }}
             >
               Search

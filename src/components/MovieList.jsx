@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import defaultMovie from "../assets/defaultmovie.png";
 import Pagination from "./Pagination";
 const MovieList = () => {
-  const { movies, search } = React.useContext(MainContext);
+  const { movies, searched } = React.useContext(MainContext);
   const navigate = useNavigate();
   return (
     <div className="p-3 pt-0">
       <div className="movie-list p-3">
         <div className={movies.length > 0 ? "" : "text-center"}>
-          {movies.length > 0 ? "Results" : `No results found for "${search}"`}
+          {movies.length > 0 ? "Results" : `No results found for "${searched}"`}
         </div>
         {movies.length > 0 ? (
           <>

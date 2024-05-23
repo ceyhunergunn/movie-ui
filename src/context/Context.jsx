@@ -5,8 +5,8 @@ export const MainContext = createContext();
 const MainContextProvider = (props) => {
   const [movies, setMovies] = useState("");
   const [search, setSearch] = useState("Pokemon");
+  const [searched, setSearched] = useState("");
   const [loader, setLoader] = useState(true);
-  const [category, setCategory] = useState("movie");
   const [type, setType] = useState("movie");
   const [page, setPage] = useState("1");
   const [totalResults, setTotalResults] = useState("");
@@ -56,12 +56,12 @@ const MainContextProvider = (props) => {
         totalResults,
         search,
         setSearch,
-        category,
-        setCategory,
         page,
         setPage,
         type,
         setType,
+        searched,
+        setSearched,
       }}
     >
       {props.children}
