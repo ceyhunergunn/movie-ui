@@ -14,7 +14,7 @@ const MoviesCard = ({ movie }) => {
         alt="poster"
         className="movies-card-image"
       />
-      <div className="movies-card-detail d-flex align-items-center justify-content-center">
+      <div className="movies-card-detail flex-center">
         <div className="text-center">
           <div className="text-title ">{movie.Title}</div>
           <div className="text-subtitle">Release Date</div>

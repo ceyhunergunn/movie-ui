@@ -1,7 +1,6 @@
 import React from "react";
 import { MainContext } from "./context/Context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import MovieList from "./components/MovieList";
 import MovieDetails from "./components/MovieDetails";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
@@ -21,7 +20,6 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Movies />} />
-              {/* <Route path="/list" element={<MovieList />} /> */}
               <Route path="/:id" element={<MovieDetails />} />
             </Routes>
           </BrowserRouter>

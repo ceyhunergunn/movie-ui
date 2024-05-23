@@ -26,10 +26,6 @@ html {
   justify-content: center;
 }
 
-.text-2 {
-  color: $detail-secondary-color;
-}
-
 .text {
   &-title {
     font-size: 18px;
@@ -40,6 +36,9 @@ html {
     font-size: 14px;
     color: $detail-secondary-color;
     font-weight: normal;
+  }
+  &-2 {
+    color: $detail-secondary-color;
   }
 }
 
@@ -62,7 +61,7 @@ html {
 
 .navbar {
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   background-color: $secondary-color;
   border-top: none;
@@ -184,6 +183,8 @@ html {
 }
 
 .movies-area {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .movies {
