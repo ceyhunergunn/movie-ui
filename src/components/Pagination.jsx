@@ -11,6 +11,7 @@ const Pagination = () => {
         <div className="text-2 flex-center">
           <div
             onClick={() => {
+              window.scrollTo(0, 0);
               setPage(1);
             }}
             className="pagination-btn"
@@ -35,6 +36,7 @@ const Pagination = () => {
         <div className="text-2 flex-center">
           <div
             onClick={() => {
+              window.scrollTo(0, 0);
               setPage(+page - 1);
             }}
             className="pagination-btn"
@@ -59,6 +61,7 @@ const Pagination = () => {
         <div className="text-2 flex-center">
           <div
             onClick={() => {
+              window.scrollTo(0,0)
               setPage(1);
             }}
             className="pagination-btn"
@@ -102,6 +105,7 @@ const Pagination = () => {
       {+page > 1 ? (
         <div
           onClick={() => {
+            window.scrollTo(0, 0);
             setPage(+page - 1);
           }}
           className="pagination-btn"
@@ -113,6 +117,7 @@ const Pagination = () => {
       {+page < totalPageCount ? (
         <div
           onClick={() => {
+            window.scrollTo(0, 0);
             setPage(+page + 1);
           }}
           className="pagination-btn"
@@ -156,6 +161,7 @@ const Pagination = () => {
           </div>
           <div
             onClick={() => {
+              window.scrollTo(0,0)
               setPage(totalPageCount);
             }}
             className="pagination-btn"
@@ -168,6 +174,7 @@ const Pagination = () => {
         <div className="text-2 flex-center">
           <div
             onClick={() => {
+              window.scrollTo(0, 0);
               setPage(+page + 1);
             }}
             className="pagination-btn"
@@ -192,6 +199,7 @@ const Pagination = () => {
         <div className="text-2 flex-center">
           <div
             onClick={() => {
+              window.scrollTo(0, 0);
               setPage(totalPageCount);
             }}
             className="pagination-btn"

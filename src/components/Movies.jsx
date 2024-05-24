@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { MainContext } from "../context/Context";
 import MoviesCard from "./MoviesCard";
 import Pagination from "./Pagination";
 import Loader from "./Loader";
 import SearchBar from "./SearchBar";
-
 const Movies = () => {
   const { movies, searched, loaderMovies } = React.useContext(MainContext);
   const [sortedMovies, setSortedMovies] = useState([]);
@@ -20,7 +20,11 @@ const Movies = () => {
     );
   };
   return (
-    <div style={{ paddingTop: "70px" }}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      style={{ paddingTop: "70px" }}
+    >
       <SearchBar />
       <div className="movies-area p-3 pt-0 row mx-auto">
         {loaderMovies ? (
@@ -69,7 +73,7 @@ const Movies = () => {
           </>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

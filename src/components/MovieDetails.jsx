@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { MainContext } from "../context/Context";
 import Loader from "./Loader";
 import defaultMovie from "../assets/defaultmovie.png";
@@ -6,15 +7,26 @@ import defaultMovie from "../assets/defaultmovie.png";
 const MovieDetails = () => {
   const { movieDetail, loaderMovieDetails } = React.useContext(MainContext);
   return (
-    <div className="p-3 movie-detail">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="p-3 movie-detail"
+    >
       {loaderMovieDetails ? (
         <div className="h-100">
           <Loader />
         </div>
       ) : (
         <div className="row mx-auto w-100 h-100" style={{ paddingTop: "70px" }}>
-          <div className="col-12 flex-center flex-column text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="col-12 flex-center flex-column text-center"
+          >
             <div className="movie-detail-title mb-3">{movieDetail.Title}</div>
+            {movieDetail.Plot === "N/A" ? null : (
+              <div className="movie-detail-detail mb-3">{movieDetail.Plot}</div>
+            )}
             <div className="d-flex">
               {movieDetail.Genre === "N/A" ? null : (
                 <div className="p-1 movie-detail-badge me-2 flex-center text-center">
@@ -47,11 +59,12 @@ const MovieDetails = () => {
                 </div>
               )}
             </div>
-          </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 p-3 flex-center flex-column">
-            {movieDetail.Plot === "N/A" ? null : (
-              <div className="movie-detail-detail mb-3">{movieDetail.Plot}</div>
-            )}
+          </motion.div>
+          <motion.div
+            initial={{ x: -500 }}
+            animate={{ x: 0 }}
+            className="col-lg-6 col-md-6 col-sm-12 p-3 flex-center flex-column"
+          >
             <img
               src={
                 movieDetail.Poster !== "N/A" ? movieDetail.Poster : defaultMovie
@@ -59,8 +72,12 @@ const MovieDetails = () => {
               alt="poster"
               className="movie-detail-image"
             />
-          </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 p-3 text-title flex-center flex-column">
+          </motion.div>
+          <motion.div
+            initial={{ x: +500 }}
+            animate={{ x: 0 }}
+            className="col-lg-6 col-md-6 col-sm-12 p-3 text-title flex-center flex-column"
+          >
             {movieDetail.Actors === "N/A" ? null : (
               <>
                 <div className="movie-detail-subtitle">Actors</div>
@@ -133,10 +150,10 @@ const MovieDetails = () => {
                 </div>
               </>
             )}
-          </div>
+          </motion.div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

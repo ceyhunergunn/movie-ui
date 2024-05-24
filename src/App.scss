@@ -14,6 +14,10 @@ html {
   background-color: $primary-color;
   height: 100vh;
 }
+body {
+  height: 100vh;
+  background-color: $primary-color;
+}
 #root {
   height: 100vh;
   background-color: $primary-color;

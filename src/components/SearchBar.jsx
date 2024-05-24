@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { MainContext } from "../context/Context";
 
 const SearchBar = () => {
@@ -8,7 +9,11 @@ const SearchBar = () => {
   return (
     <div className="w-100 mx-auto p-3 searchbar">
       <div className="row w-100 mx-auto">
-        <div className="col-lg-6 col-md-12 my-3">
+        <motion.div
+          initial={{ x: -300 }}
+          animate={{ x: 0 }}
+          className="col-lg-6 col-md-12 my-3"
+        >
           <input
             type="text"
             placeholder="Search"
@@ -16,8 +21,12 @@ const SearchBar = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-        </div>
-        <div className="col-lg-6 col-md-12 my-3">
+        </motion.div>
+        <motion.div
+          initial={{ x: +300 }}
+          animate={{ x: 0 }}
+          className="col-lg-6 col-md-12 my-3"
+        >
           <div className="searchbar-btn-area">
             <div
               className={` ${
@@ -56,7 +65,7 @@ const SearchBar = () => {
               Search
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
