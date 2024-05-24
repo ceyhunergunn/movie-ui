@@ -51,10 +51,6 @@ const MainContextProvider = (props) => {
           setTimeout(() => {
             setLoaderMovies(false);
           }, 1000);
-          Toast.fire({
-            icon: "error",
-            title: "Something went wrong!",
-          });
         }
       });
   };
