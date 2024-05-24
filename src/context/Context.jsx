@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 export const MainContext = createContext();
 
@@ -13,6 +14,20 @@ const MainContextProvider = (props) => {
   const [type, setType] = useState("");
   const [page, setPage] = useState("1");
   const [totalResults, setTotalResults] = useState("");
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    background: "#222",
+    color: "#FFFFFF",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   const getMovie = async () => {
     await fetch(
@@ -36,6 +51,10 @@ const MainContextProvider = (props) => {
           setTimeout(() => {
             setLoaderMovies(false);
           }, 1000);
+          Toast.fire({
+            icon: "error",
+            title: "Something went wrong!",
+          });
         }
       });
   };
@@ -54,6 +73,11 @@ const MainContextProvider = (props) => {
         if (json.Response === "True") {
           setMovieDetail(json);
           setLoaderMovieDetails(false);
+        } else {
+          Toast.fire({
+            icon: "error",
+            title: "Something went wrong!",
+          });
         }
       });
   };
@@ -89,6 +113,7 @@ const MainContextProvider = (props) => {
         setMovieDetail,
         loaderMovieDetails,
         setLoaderMovieDetails,
+        Toast,
       }}
     >
       {props.children}

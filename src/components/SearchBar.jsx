@@ -3,8 +3,16 @@ import { motion } from "framer-motion";
 import { MainContext } from "../context/Context";
 
 const SearchBar = () => {
-  const { setPage, type, setType, search, setSearch, setSearched, getMovie } =
-    React.useContext(MainContext);
+  const {
+    setPage,
+    type,
+    setType,
+    search,
+    setSearch,
+    setSearched,
+    getMovie,
+    Toast,
+  } = React.useContext(MainContext);
 
   return (
     <div className="w-100 mx-auto p-3 searchbar">
@@ -59,6 +67,11 @@ const SearchBar = () => {
                   setSearched(search);
                   setPage(1);
                   getMovie();
+                } else {
+                  Toast.fire({
+                    icon: "error",
+                    title: "Please fill empty area.",
+                  });
                 }
               }}
             >
