@@ -12,6 +12,6 @@ runs the project
 
 # Code and Live Demo
 
-Githun Repository URL: https://github.com/ceyhunergunn/movie-ui
+Github Repository URL: https://github.com/ceyhunergunn/movie-ui
 
 Live Demo: https://movie-ui.hicci.com.tr/
