@@ -70,7 +70,7 @@ const SearchBar = () => {
                 } else {
                   Toast.fire({
                     icon: "error",
-                    title: "Please fill empty area.",
+                    title: "Search field cannot be empty.",
                   });
                 }
               }}
