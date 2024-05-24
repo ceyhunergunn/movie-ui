@@ -9,3 +9,9 @@ installs all packages used in the project
 
 2: npm start
 runs the project
+
+# Code and Live Demo
+
+Githun Repository URL: https://github.com/ceyhunergunn/movie-ui
+
+Live Demo: https://movie-ui.hicci.com.tr/

@@ -16,7 +16,7 @@ const MainContextProvider = (props) => {
 
   const getMovie = async () => {
     await fetch(
-      `http://www.omdbapi.com/?s=${search}&type=${type}&page=${page}&apikey=d761022e`
+      `https://www.omdbapi.com/?s=${search}&type=${type}&page=${page}&apikey=d761022e`
     )
       .then((response) => response.json())
       .then((json) => {
@@ -48,7 +48,7 @@ const MainContextProvider = (props) => {
   const extracted = currentUrl.split("/").pop();
 
   const getMovieDetail = async (id) => {
-    await fetch(`http://www.omdbapi.com/?i=${id}&apikey=d761022e`)
+    await fetch(`https://www.omdbapi.com/?i=${id}&apikey=d761022e`)
       .then((response) => response.json())
       .then((json) => {
         if (json.Response === "True") {
